@@ -14,7 +14,7 @@ do
 done
 
 cd $CDIR
-rm -rf $build_dir && mkdir -p $build_dir
+rm -rf $build_dir && mkdir -p $build_dir && mkdir bin
 
 git clone --quiet https://github.com/chitoku-k/dotfiles
 rm -rf dotfiles/.git
@@ -22,12 +22,18 @@ rm -rf dotfiles/.git
 git clone --quiet https://github.com/zsh-users/antigen
 rm -rf antigen/.git
 
+curl -sSfL 'https://github.com/junegunn/fzf-bin/releases/download/0.21.1/fzf-0.21.1-linux_386.tgz' | tar xf -
+mv fzf bin/
+
+curl -sSfL 'https://github.com/sharkdp/fd/releases/download/v8.1.1/fd-v8.1.1-x86_64-unknown-linux-musl.tar.gz' | tar xf - 'fd-v8.1.1-x86_64-unknown-linux-musl/fd'
+mv 'fd-v8.1.1-x86_64-unknown-linux-musl/fd' bin/
+
 mkdir -p antigen/bundles
 pushd antigen/bundles
 xargs -n 1 -I '{}' git clone --quiet 'https://github.com/{}' '{}' < ../../dotfiles/config/zsh/bundles
 popd
 
-for f in *prerun.sh dotfiles antigen
+for f in *prerun.sh dotfiles antigen bin
 do
   cp -r $CDIR/$f $build_dir/
 done
