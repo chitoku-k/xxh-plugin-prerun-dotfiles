@@ -24,7 +24,7 @@ rm -rf antigen/.git
 
 mkdir -p antigen/bundles
 pushd antigen/bundles
-xargs -n 1 git clone --quiet < ../../dotfiles/config/zsh/bundles
+xargs -n 1 -I '{}' git clone --quiet 'https://github.com/{}' '{}' < ../../dotfiles/config/zsh/bundles
 popd
 
 for f in *prerun.sh dotfiles antigen
