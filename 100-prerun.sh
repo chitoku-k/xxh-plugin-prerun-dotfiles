@@ -17,6 +17,9 @@ if [[ ! -f $done_file ]]; then
   cd $XXH_HOME/dotfiles
   ./install <<< '1 3 4 11'
 
+  PATH=$XXH_SHELL_ZSH/zsh-bin/bin:$PATH \
+    $XDG_CACHE_HOME/antigen/bundles/junegunn/fzf/install --all --xdg --no-update-rc
+
   cp $XXH_HOME/.zshenv $XXH_SHELL_ZSH
   touch $done_file
 fi
