@@ -1,3 +1,5 @@
+XXH_SHELL_ZSH=$CURRENT_DIR
+
 if [[ $XDG_CACHE_HOME ]]; then
   done_file=$XDG_CACHE_HOME/xxh-plugin-prerun-dotfiles-done
 else
@@ -12,4 +14,7 @@ if [[ ! -f $done_file ]]; then
   mkdir -p `dirname $done_file`
   echo 'done' > $done_file
 fi
+
+sed -i '$isource "'$XXH_HOME/.zshenv'"' $XXH_SHELL_ZSH/zsh.sh
+
 cd $XXH_HOME
