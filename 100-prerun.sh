@@ -15,9 +15,8 @@ if [[ ! -f $done_file ]]; then
   cd $XXH_HOME/dotfiles
   ./install <<< '1 3 4 11'
 
-  echo 'done' > $done_file
+  cp $XXH_HOME/.zshenv $XXH_SHELL_ZSH
+  touch $done_file
 fi
-
-sed -i '$isource "'$XXH_HOME/.zshenv'"' $XXH_SHELL_ZSH/zsh.sh
 
 cd $XXH_HOME
