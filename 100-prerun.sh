@@ -11,7 +11,9 @@ if [[ ! -f $done_file ]]; then
   CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
   cp -r $CURR_DIR/dotfiles $XXH_HOME/dotfiles
   cp -r $CURR_DIR/antigen $XDG_CACHE_HOME/antigen
-  $XXH_HOME/dotfiles/install <<< '1 3 4 11'
+
+  cd $XXH_HOME/dotfiles
+  ./install <<< '1 3 4 11'
 
   echo 'done' > $done_file
 fi
