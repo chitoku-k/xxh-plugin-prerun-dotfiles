@@ -29,10 +29,10 @@ curl -sSfL 'https://github.com/sharkdp/fd/releases/download/v8.1.1/fd-v8.1.1-x86
 mv 'fd-v8.1.1-x86_64-unknown-linux-musl/fd' bin/
 
 mkdir -p antigen/bundles
-pushd antigen/bundles
+pushd antigen/bundles > /dev/null
 xargs -n 1 -I '{}' git clone --quiet 'https://github.com/{}' '{}' < ../../dotfiles/config/zsh/bundles
 find . -path '*/.git*' -delete
-popd
+popd > /dev/null
 
 for f in *prerun.sh dotfiles antigen bin
 do
