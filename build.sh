@@ -34,9 +34,9 @@ xargs -n 1 -I '{}' git clone --quiet 'https://github.com/{}' '{}' < ../../dotfil
 find . -path '*/.git*' -delete
 popd > /dev/null
 
-tar -czf archive.tar.gz dotfiles antigen bin
+tar -Jcf archive.tar.xz dotfiles antigen bin
 
-for f in *prerun.sh archive.tar.gz
+for f in *prerun.sh archive.tar.xz
 do
   cp -r $CDIR/$f $build_dir/
 done

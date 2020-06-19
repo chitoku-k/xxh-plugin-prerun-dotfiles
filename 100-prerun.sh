@@ -10,7 +10,7 @@ if [[ ! -f $done_file ]]; then
   CURR_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
   mkdir -p $XDG_CACHE_HOME
 
-  tar -xmf $CURR_DIR/archive.tar.gz -C $CURR_DIR
+  tar -xmf $CURR_DIR/archive.tar.xz -C $CURR_DIR
   cp $CURR_DIR/bin/* $XXH_SHELL_ZSH/zsh-bin/bin
   cp -r $CURR_DIR/dotfiles $XXH_HOME/dotfiles
   cp -r $CURR_DIR/antigen $XDG_CACHE_HOME/antigen
