@@ -25,6 +25,10 @@ rm -rf antigen/.git
 curl -sSfL 'https://github.com/junegunn/fzf-bin/releases/download/0.21.1/fzf-0.21.1-linux_386.tgz' | tar xf -
 mv fzf bin/
 
+curl -sSfLOJ 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64'
+mv jq-linux64 bin/jq
+chmod +x bin/jq
+
 curl -sSfL 'https://github.com/sharkdp/fd/releases/download/v8.1.1/fd-v8.1.1-x86_64-unknown-linux-musl.tar.gz' | tar xf - 'fd-v8.1.1-x86_64-unknown-linux-musl/fd'
 mv 'fd-v8.1.1-x86_64-unknown-linux-musl/fd' bin/
 
