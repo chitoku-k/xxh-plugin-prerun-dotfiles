@@ -16,7 +16,7 @@ if [[ ! -f $done_file ]]; then
   cp -r $CURR_DIR/antigen $XDG_CACHE_HOME/antigen
 
   cd $XXH_HOME/dotfiles
-  ./install <<< '1 4 5 12'
+  ./install <<< '1 4 5 12' > /dev/null
 
   PATH=$XXH_SHELL_ZSH/zsh-bin/bin:$PATH \
     $XDG_CACHE_HOME/antigen/bundles/junegunn/fzf/install --all --xdg --no-update-rc > /dev/null
