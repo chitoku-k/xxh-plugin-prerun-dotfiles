@@ -22,7 +22,7 @@ rm -rf dotfiles/.git
 git clone --quiet https://github.com/zsh-users/antigen
 rm -rf antigen/.git
 
-curl -sSfL 'https://github.com/junegunn/fzf-bin/releases/download/0.21.1/fzf-0.21.1-linux_386.tgz' | tar xf -
+curl -sSfL 'https://github.com/junegunn/fzf-bin/releases/download/0.22.0/fzf-0.22.0-linux_386.tgz' | tar xf -
 mv fzf bin/
 
 curl -sSfLOJ 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64'
