@@ -22,15 +22,15 @@ rm -rf dotfiles/.git
 git clone --quiet https://github.com/zsh-users/antigen
 rm -rf antigen/.git
 
-curl -sSfL 'https://github.com/junegunn/fzf-bin/releases/download/0.22.0/fzf-0.22.0-linux_386.tgz' | tar xf -
+curl -sSfL 'https://github.com/junegunn/fzf/releases/download/0.27.0/fzf-0.27.0-linux_amd64.tar.gz' | tar xf -
 mv fzf bin/
 
 curl -sSfLOJ 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64'
 mv jq-linux64 bin/jq
 chmod +x bin/jq
 
-curl -sSfL 'https://github.com/sharkdp/fd/releases/download/v8.1.1/fd-v8.1.1-x86_64-unknown-linux-musl.tar.gz' | tar xf - 'fd-v8.1.1-x86_64-unknown-linux-musl/fd'
-mv 'fd-v8.1.1-x86_64-unknown-linux-musl/fd' bin/
+curl -sSfL 'https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-musl.tar.gz' | tar xf - 'fd-v8.2.1-x86_64-unknown-linux-musl/fd'
+mv 'fd-v8.2.1-x86_64-unknown-linux-musl/fd' bin/
 
 mkdir -p antigen/bundles
 pushd antigen/bundles > /dev/null
