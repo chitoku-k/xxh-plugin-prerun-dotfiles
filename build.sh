@@ -34,7 +34,15 @@ mv 'fd-v8.2.1-x86_64-unknown-linux-musl/fd' bin/
 
 mkdir -p antigen/bundles
 pushd antigen/bundles > /dev/null
-xargs -n 1 -I '{}' git clone --quiet 'https://github.com/{}' '{}' < ../../dotfiles/config/zsh/bundles
+for repo in $(cat ../../dotfiles/config/zsh/bundles); do
+    if [[ $repo = *:* ]]; then
+        git clone --quiet "$repo" "$repo"
+    elif [[ $repo = *.* ]]; then
+        git clone --quiet "https://$repo" "$repo"
+    else
+        git clone --quiet "https://github.com/$repo" "$repo"
+    fi
+done
 find . -path '*/.git*' -delete
 popd > /dev/null
 
